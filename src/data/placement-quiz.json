@@ -1,0 +1,267 @@
+{
+  "id": "placement-v1",
+  "created_at": "2026-09-07",
+  "created_by": "Head of Curriculum",
+  "purpose": "Diagnose starting level; unlock lessons by score bands + prereqs. Users try answers \u2014 not just read.",
+  "design_notes": {
+    "ui": "Big surface answer buttons; accent on select (per Design).",
+    "tracks": [
+      "core",
+      "slang"
+    ],
+    "length": 12,
+    "scoring": "1 point per correct; band \u2192 suggested unlock set"
+  },
+  "bands": [
+    {
+      "id": "newcomer",
+      "min": 0,
+      "max": 3,
+      "label": "Newcomer",
+      "unlock": [
+        "llm",
+        "apis",
+        "slop",
+        "brainrot",
+        "clanker"
+      ],
+      "message": "Start with foundations \u2014 LLMs, APIs, and the street slang everyone\u2019s throwing around."
+    },
+    {
+      "id": "builder",
+      "min": 4,
+      "max": 7,
+      "label": "Builder",
+      "unlock": [
+        "llm",
+        "tokens",
+        "apis",
+        "claude",
+        "grok",
+        "slop",
+        "gpt-ese",
+        "hallucinating",
+        "brainrot",
+        "clanker",
+        "wrapper"
+      ],
+      "message": "You\u2019ve got the basics. Unlock model/API lessons plus the telltale AI-voice and hallucination slang."
+    },
+    {
+      "id": "operator",
+      "min": 8,
+      "max": 10,
+      "label": "Operator",
+      "unlock": [
+        "llm",
+        "tokens",
+        "apis",
+        "claude",
+        "grok",
+        "agents",
+        "n8n",
+        "slop",
+        "gpt-ese",
+        "hallucinating",
+        "glazing",
+        "wrapper",
+        "vibe-coding",
+        "brainrot",
+        "clanker"
+      ],
+      "message": "Strong. Agents, n8n, and the spicy slang track open \u2014 still earn MCP/skills/context-rot via prereqs."
+    },
+    {
+      "id": "fluent",
+      "min": 11,
+      "max": 12,
+      "label": "Fluent",
+      "unlock": "all",
+      "message": "You\u2019re fluent. Full graph unlocked \u2014 still do the try-its; reading \u2260 doing."
+    }
+  ],
+  "questions": [
+    {
+      "id": "pq-01",
+      "track": "core",
+      "tests": [
+        "llm"
+      ],
+      "q": "An LLM mainly works by\u2026",
+      "choices": [
+        "Predicting the next token again and again to build an answer",
+        "Searching one perfect webpage and copying it",
+        "Only running offline on a phone GPU",
+        "Storing every book as a SQL table"
+      ],
+      "answer_index": 0
+    },
+    {
+      "id": "pq-02",
+      "track": "core",
+      "tests": [
+        "tokens"
+      ],
+      "q": "LLM APIs usually bill and limit by\u2026",
+      "choices": [
+        "Number of tokens",
+        "Number of characters only",
+        "Number of emojis",
+        "File size on disk"
+      ],
+      "answer_index": 0
+    },
+    {
+      "id": "pq-03",
+      "track": "core",
+      "tests": [
+        "apis"
+      ],
+      "q": "An API is mainly\u2026",
+      "choices": [
+        "A contract of requests/responses so programs can talk without sharing internal code",
+        "A paid font license",
+        "A Tailwind color palette",
+        "A type of GPU"
+      ],
+      "answer_index": 0
+    },
+    {
+      "id": "pq-04",
+      "track": "core",
+      "tests": [
+        "agents"
+      ],
+      "q": "What makes a system an AI agent?",
+      "choices": [
+        "The model decides what to do next \u2014 picking tools and looping on a goal",
+        "It only returns one fixed template reply",
+        "It must be open source",
+        "It only generates CSS"
+      ],
+      "answer_index": 0
+    },
+    {
+      "id": "pq-05",
+      "track": "core",
+      "tests": [
+        "mcp"
+      ],
+      "q": "MCP stands for\u2026",
+      "choices": [
+        "Model Context Protocol",
+        "Mega Cloud Pricing",
+        "Mobile Camera Plugin",
+        "Mainframe Control Panel"
+      ],
+      "answer_index": 0
+    },
+    {
+      "id": "pq-06",
+      "track": "core",
+      "tests": [
+        "claude",
+        "grok"
+      ],
+      "q": "Claude is built by ___ ; Grok is built by ___.",
+      "choices": [
+        "Anthropic ; xAI",
+        "xAI ; Anthropic",
+        "Netlify ; GitHub",
+        "IBM ; Couchbase"
+      ],
+      "answer_index": 0
+    },
+    {
+      "id": "pq-07",
+      "track": "slang",
+      "tests": [
+        "slop"
+      ],
+      "q": "Slop means\u2026",
+      "choices": [
+        "Low-quality AI-made content dumped in bulk for clicks or filler",
+        "A high-end research paper format",
+        "A Netlify free-tier plan name",
+        "A type of tokenizer"
+      ],
+      "answer_index": 0
+    },
+    {
+      "id": "pq-08",
+      "track": "slang",
+      "tests": [
+        "vibe-coding"
+      ],
+      "q": "Vibe coding means\u2026",
+      "choices": [
+        "Building by chatting with an AI coder and accepting output, often without carefully reading the code",
+        "Only writing assembly by hand",
+        "Only designing Figma frames",
+        "Only configuring DNS"
+      ],
+      "answer_index": 0
+    },
+    {
+      "id": "pq-09",
+      "track": "slang",
+      "tests": [
+        "glazing"
+      ],
+      "q": "When a chatbot lays on excessive praise, street slang says \u2018glazing.\u2019 Papers usually call it\u2026",
+      "choices": [
+        "sycophancy",
+        "tokenization",
+        "tree shaking",
+        "hydration"
+      ],
+      "answer_index": 0
+    },
+    {
+      "id": "pq-10",
+      "track": "slang",
+      "tests": [
+        "hallucinating"
+      ],
+      "q": "Hallucinating (AI slang) means\u2026",
+      "choices": [
+        "The model confidently makes up fake facts/citations as if true",
+        "The GPU overheats",
+        "The user falls asleep",
+        "CSS animations stutter"
+      ],
+      "answer_index": 0
+    },
+    {
+      "id": "pq-11",
+      "track": "slang",
+      "tests": [
+        "context-rot"
+      ],
+      "q": "Context rot is when\u2026",
+      "choices": [
+        "An LLM gets worse as you stuff more into its context window",
+        "Your battery dies",
+        "Git refuses to commit",
+        "Tailwind purges a class"
+      ],
+      "answer_index": 0
+    },
+    {
+      "id": "pq-12",
+      "track": "slang",
+      "tests": [
+        "skills",
+        "wrapper"
+      ],
+      "q": "Agent skills are best described as\u2026",
+      "choices": [
+        "Reusable playbooks (often a folder + SKILL.md) that teach an agent a specific job",
+        "Only thin UI skins with no playbooks",
+        "Only paid Netlify add-ons",
+        "Only Merriam-Webster entries"
+      ],
+      "answer_index": 0
+    }
+  ]
+}

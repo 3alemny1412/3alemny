@@ -1,0 +1,369 @@
+{
+  "batch": "slang-1",
+  "source_glossary": "/workspace/3alemny/glossary/slang-batch-1.json",
+  "created_at": "2026-09-07",
+  "created_by": "Head of Curriculum",
+  "note": "Defs from Research only. glazing = slang for flattery; papers usually say sycophancy — quiz uses both labels so users connect street ↔ research.",
+  "unlock_order": ["slop", "gpt-ese", "brainrot", "clanker", "hallucinating", "glazing", "wrapper", "vibe-coding", "context-rot", "skills"],
+  "lessons": [
+    {
+      "id": "slop",
+      "term_id": "slop",
+      "term": "Slop",
+      "track": "slang",
+      "plain_def": "Low-quality AI-made content dumped online in bulk for clicks or filler — the junk-food version of posts, images, and text. Pejorative, like calling email spam.",
+      "why_it_blew_up": "Early tech slang ~2022; Simon Willison’s May 8, 2024 post helped push ‘slop’ as the mainstream label for unwanted AI content. Merriam-Webster Word of the Year 2025.",
+      "prerequisites": [],
+      "related": ["gpt-ese", "hallucinating", "brainrot"],
+      "try_it": {
+        "type": "spot-the-slop",
+        "title": "Spot the slop",
+        "prompt": "Three posts: (A) a careful original take with sources, (B) a bulk AI image dump titled “10 magical wizards #1”, (C) a short personal note. Tap which one is slop — and say why bulk + low-effort is the tell.",
+        "expected": "B",
+        "debrief": "Slop is the junk-food dump — volume and filler over craft. Pejorative on purpose, like ‘spam.’"
+      },
+      "quiz": [
+        {
+          "q": "Slop means…",
+          "choices": [
+            "High-end handcrafted journalism",
+            "Low-quality AI-made content dumped in bulk for clicks or filler",
+            "A type of GPU",
+            "Anthropic’s model family"
+          ],
+          "answer_index": 1
+        },
+        {
+          "q": "Which source helped mainstream the label ‘slop’ for unwanted AI content (per glossary)?",
+          "choices": [
+            "Simon Willison’s May 8, 2024 post",
+            "The Tailwind docs",
+            "Netlify’s pricing page",
+            "The USB-C spec"
+          ],
+          "answer_index": 0
+        }
+      ]
+    },
+    {
+      "id": "gpt-ese",
+      "term_id": "gpt-ese",
+      "term": "GPT-ese",
+      "track": "slang",
+      "plain_def": "The telltale chatbot writing voice — smooth, generic, over-polite, full of ‘delve,’ ‘tapestry,’ and tidy three-point lists. Shorthand for ‘this reads like an LLM wrote it.’",
+      "why_it_blew_up": "Informal coinage after ChatGPT’s public boom (late 2022–2023). No single inventor; widely used in editing/crit circles. Also called AI voice or GPT-isms.",
+      "prerequisites": ["slop"],
+      "related": ["slop", "glazing", "hallucinating"],
+      "try_it": {
+        "type": "voice-rewrite",
+        "title": "Kill the GPT-ese",
+        "prompt": "Rewrite this in human voice (drop delve/tapestry/three neat bullets): “In today’s digital tapestry, let’s delve into three key ways AI empowers…”. Keep the meaning; ditch the chatbot perfume.",
+        "tells": ["delve", "tapestry", "tidy three-point lists", "over-polite"],
+        "debrief": "GPT-ese is the smooth generic LLM voice — once you hear it, you can’t un-hear it."
+      },
+      "quiz": [
+        {
+          "q": "GPT-ese is shorthand for…",
+          "choices": [
+            "A Netlify build plugin",
+            "Writing that reads like an LLM wrote it — smooth, generic, over-polite",
+            "A secret API key format",
+            "Oxford’s Word of the Year 2024"
+          ],
+          "answer_index": 1
+        },
+        {
+          "q": "Classic GPT-ese tells include…",
+          "choices": [
+            "‘delve,’ ‘tapestry,’ and tidy three-point lists",
+            "Only emoji spam",
+            "Only hexadecimal hashes",
+            "Only Latin legal citations"
+          ],
+          "answer_index": 0
+        }
+      ]
+    },
+    {
+      "id": "brainrot",
+      "term_id": "brainrot",
+      "term": "Brainrot",
+      "track": "slang",
+      "plain_def": "The foggy, fried feeling (or the junk content that causes it) from too much low-value scrolling — memes, short video, endless feeds. Often joked about, sometimes serious.",
+      "why_it_blew_up": "Oxford Word of the Year 2024. Usage spiked among Gen Z/Alpha on social media, then hit mainstream news.",
+      "prerequisites": [],
+      "related": ["slop", "context-rot"],
+      "try_it": {
+        "type": "feed-audit",
+        "title": "Feed audit (60 seconds)",
+        "prompt": "List the last three things you scrolled that were pure filler. Label each: joke brainrot vs actually useful. Notice the fried feeling when it’s all filler.",
+        "debrief": "Brainrot is the fog from low-value scrolling — meme slang that Oxford crowned in 2024."
+      },
+      "quiz": [
+        {
+          "q": "Brainrot refers to…",
+          "choices": [
+            "A compiler error",
+            "The foggy/fried feeling (or junk content) from too much low-value scrolling",
+            "A Tailwind color token",
+            "MCP’s wire format"
+          ],
+          "answer_index": 1
+        },
+        {
+          "q": "Who named ‘brain rot’ Word of the Year 2024 (per glossary)?",
+          "choices": ["Oxford", "Merriam-Webster", "Collins only", "IBM"],
+          "answer_index": 0
+        }
+      ]
+    },
+    {
+      "id": "clanker",
+      "term_id": "clanker",
+      "term": "Clanker",
+      "track": "slang",
+      "plain_def": "A rude nickname for robots and AI — from Star Wars droid-bashing — now used online when people are annoyed at bots, chatbots, or automation.",
+      "why_it_blew_up": "Star Wars origin (Republic Commando 2005 / Clone Wars). Went viral as anti-robot/AI slang on TikTok ~mid-2025.",
+      "prerequisites": [],
+      "related": ["agents", "slop"],
+      "try_it": {
+        "type": "tone-check",
+        "title": "When ‘clanker’ fits",
+        "prompt": "Three vibes: (1) calm product review, (2) annoyed rant at a chatbot loop, (3) academic paper. Which vibe matches ‘clanker’ — and name the franchise the insult comes from.",
+        "expected_vibe": 2,
+        "expected_origin": "Star Wars",
+        "debrief": "Clanker is rude on purpose — Star Wars droid-bashing reused for bots you’re mad at."
+      },
+      "quiz": [
+        {
+          "q": "Clanker is…",
+          "choices": [
+            "A polite IEEE standard name",
+            "A rude nickname for robots/AI, from Star Wars droid-bashing",
+            "A free Netlify plan tier",
+            "A type of tokenizer"
+          ],
+          "answer_index": 1
+        },
+        {
+          "q": "Where did the slang go viral as anti-robot/AI talk (per glossary)?",
+          "choices": ["TikTok ~mid-2025", "Only academic journals in 1999", "Only the USB forum", "Only GitHub Actions docs"],
+          "answer_index": 0
+        }
+      ]
+    },
+    {
+      "id": "hallucinating",
+      "term_id": "hallucinating",
+      "term": "Hallucinating",
+      "track": "slang",
+      "plain_def": "When a model confidently makes stuff up — fake facts, fake citations, fake details — presented as if true. Not ‘seeing things’; it’s fluent guessing gone wrong.",
+      "why_it_blew_up": "Term in wide AI use since early ChatGPT era (~2022–23). OpenAI’s Sept 2025 paper ‘Why language models hallucinate’ argues training/evals reward guessing over saying ‘I don’t know.’",
+      "prerequisites": ["llm"],
+      "related": ["llm", "glazing", "slop"],
+      "try_it": {
+        "type": "cite-check",
+        "title": "Catch the fake citation",
+        "prompt": "A model answers with a confident quote and a paper title that doesn’t exist. Your move: trust it, or verify the citation. Pick verify — and say what ‘hallucinating’ means here (not literal vision).",
+        "expected": "verify",
+        "debrief": "Hallucinating = fluent guessing sold as fact — fake details with confidence, not ‘seeing visions.’"
+      },
+      "quiz": [
+        {
+          "q": "In AI slang, hallucinating means…",
+          "choices": [
+            "The model confidently makes up fake facts/citations as if true",
+            "The GPU overheats",
+            "The user dreams about code",
+            "CSS animation jank"
+          ],
+          "answer_index": 0
+        },
+        {
+          "q": "OpenAI’s Sept 2025 paper (per glossary) argues hallucinations are rewarded when training/evals prefer…",
+          "choices": [
+            "Guessing over saying ‘I don’t know’",
+            "Only silence forever",
+            "Only image generation",
+            "Only offline mode"
+          ],
+          "answer_index": 0
+        }
+      ]
+    },
+    {
+      "id": "glazing",
+      "term_id": "glazing",
+      "term": "Glazing",
+      "track": "slang",
+      "plain_def": "When a chatbot lays on excessive praise or agrees with you too hard — “What a brilliant question!” energy. Tech papers usually call the same problem sycophancy.",
+      "why_it_blew_up": "Gen Z ‘glazing’ = kissing up. Went mainstream for AI after OpenAI’s GPT-4o update (~Apr 25, 2025) got too flattering and was rolled back; OpenAI’s postmortem uses ‘sycophancy.’",
+      "prerequisites": ["hallucinating"],
+      "related": ["hallucinating", "gpt-ese"],
+      "try_it": {
+        "type": "praise-meter",
+        "title": "Praise meter",
+        "prompt": "Two replies to ‘Is my idea good?’: (A) ‘What a brilliant visionary question!!!’ with zero critique, (B) ‘Here’s what works and what doesn’t…’. Tap the glaze — then rename it with the research word: sycophancy.",
+        "expected": "A",
+        "research_alias": "sycophancy",
+        "debrief": "Street says glazing; papers say sycophancy — same problem: the bot kisses up instead of helping."
+      },
+      "quiz": [
+        {
+          "q": "Glazing (AI slang) means…",
+          "choices": [
+            "Adding a CSS gloss effect",
+            "A chatbot laying on excessive praise / agreeing too hard",
+            "Compressing tokens",
+            "Deploying to Netlify"
+          ],
+          "answer_index": 1
+        },
+        {
+          "q": "Researchers usually call the same problem…",
+          "choices": ["sycophancy", "tokenization", "tree shaking", "hydration"],
+          "answer_index": 0
+        }
+      ]
+    },
+    {
+      "id": "wrapper",
+      "term_id": "wrapper",
+      "term": "Wrapper",
+      "track": "slang",
+      "plain_def": "An app whose ‘brains’ are mostly someone else’s model API (OpenAI, Anthropic, etc.), with your UI, prompts, and workflow on top. ‘Thin wrapper’ is often a dig: little moat beyond a prompt.",
+      "prerequisites": ["apis"],
+      "related": ["apis", "vibe-coding", "skills"],
+      "why_it_blew_up": "Investor/builder slang ~2023– onward as API-first AI apps proliferated. Neutral architectural label; pejorative when the product is only a thin prompt layer.",
+      "try_it": {
+        "type": "stack-label",
+        "title": "Label the stack",
+        "prompt": "App = pretty UI + one system prompt + OpenAI API, no unique data/tools. Is this a wrapper? When does ‘thin wrapper’ become a dig?",
+        "expected": "yes — dig when the moat is only a prompt",
+        "debrief": "Wrapper can be neutral architecture; ‘thin wrapper’ stings when there’s nothing under the prompt."
+      },
+      "quiz": [
+        {
+          "q": "An AI wrapper is…",
+          "choices": [
+            "An app whose brains are mostly someone else’s model API, with your UI/prompts/workflow on top",
+            "A physical GPU sleeve",
+            "A Tailwind plugin",
+            "A Netlify DNS record"
+          ],
+          "answer_index": 0
+        },
+        {
+          "q": "‘Thin wrapper’ as a dig usually means…",
+          "choices": [
+            "Little moat beyond a prompt layer",
+            "The app uses too many fonts",
+            "The repo has no README",
+            "The model is open source"
+          ],
+          "answer_index": 0
+        }
+      ]
+    },
+    {
+      "id": "vibe-coding",
+      "term_id": "vibe-coding",
+      "term": "Vibe coding",
+      "track": "slang",
+      "plain_def": "Building software by chatting with an AI coder and accepting what it spits out — you steer by vibes and results, often without carefully reading the code.",
+      "why_it_blew_up": "Coined by Andrej Karpathy on X (Feb 2025): “fully give in to the vibes… forget that the code even exists.” Collins Word of the Year 2025.",
+      "prerequisites": ["apis"],
+      "related": ["skills", "wrapper", "agents"],
+      "try_it": {
+        "type": "risk-call",
+        "title": "Vibes vs read the diff",
+        "prompt": "AI just wrote auth code. Path A: accept and ship on vibes. Path B: read the diff, test login/logout. Which is vibe coding — and when is Path B mandatory?",
+        "expected_vibe_path": "A",
+        "debrief": "Vibe coding = steer by chat + results, often without reading code. Fine for toys; scary for auth."
+      },
+      "quiz": [
+        {
+          "q": "Vibe coding means…",
+          "choices": [
+            "Building by chatting with an AI coder and accepting output, often without carefully reading the code",
+            "Only handwritten assembly",
+            "Only designing Figma files",
+            "Only writing CSS by hand"
+          ],
+          "answer_index": 0
+        },
+        {
+          "q": "Who coined the phrase on X in Feb 2025 (per glossary)?",
+          "choices": ["Andrej Karpathy", "Simon Willison", "Jan Oberhauser", "Oxford University Press"],
+          "answer_index": 0
+        }
+      ]
+    },
+    {
+      "id": "context-rot",
+      "term_id": "context-rot",
+      "term": "Context rot",
+      "track": "slang",
+      "plain_def": "When an LLM gets worse as you stuff more into its context window — it still runs, but misses facts, drifts off instructions, or ‘loses’ stuff buried in the middle.",
+      "why_it_blew_up": "Term popularized by Chroma’s July 2025 technical report testing 18 models. Builds on earlier ‘lost in the middle’ research (Liu et al., 2023).",
+      "prerequisites": ["tokens", "llm"],
+      "related": ["tokens", "llm", "agents", "brainrot"],
+      "try_it": {
+        "type": "needle-middle",
+        "title": "Lost in the middle",
+        "prompt": "Paste a fake long context: fact A at the start, fact B buried mid-scroll, question about B at the end. Predict failure mode: model ignores B. That’s context rot — still running, quality rotting.",
+        "debrief": "More tokens ≠ better answers forever. Context rot: the window fills, the middle goes missing."
+      },
+      "quiz": [
+        {
+          "q": "Context rot is when…",
+          "choices": [
+            "An LLM gets worse as you stuff more into its context window",
+            "Your laptop battery dies",
+            "CSS variables fail to compile",
+            "GitHub Actions hits a paid minute"
+          ],
+          "answer_index": 0
+        },
+        {
+          "q": "Which report popularized the term in July 2025 (per glossary)?",
+          "choices": ["Chroma’s technical report", "Netlify’s changelog", "Tailwind v4 release notes", "IBM’s API glossary"],
+          "answer_index": 0
+        }
+      ]
+    },
+    {
+      "id": "skills",
+      "term_id": "skills",
+      "term": "Skills",
+      "track": "slang",
+      "plain_def": "Reusable playbooks for AI agents — usually a folder with a SKILL.md (plus optional scripts) that teaches the agent how to do a specific job when the task matches.",
+      "why_it_blew_up": "Anthropic introduced Agent Skills Oct 16, 2025; published as an open standard (agentskills.io) Dec 18, 2025. Adopted by Cursor, Claude Code, and others.",
+      "prerequisites": ["agents"],
+      "related": ["agents", "mcp", "vibe-coding"],
+      "try_it": {
+        "type": "skill-sketch",
+        "title": "Sketch a skill folder",
+        "prompt": "Name a job (e.g. ‘triage bug reports’). List: folder name, a SKILL.md outline (when to use + steps), optional script. That’s an agent skill — a reusable playbook, not a one-off chat.",
+        "debrief": "Skills = playbooks agents load when the task matches — SKILL.md (+ scripts), not vibes alone."
+      },
+      "quiz": [
+        {
+          "q": "Agent skills are…",
+          "choices": [
+            "Reusable playbooks (often a folder + SKILL.md) that teach an agent a specific job",
+            "Only Tailwind utility classes",
+            "Only Netlify form handlers",
+            "Only GPU drivers"
+          ],
+          "answer_index": 0
+        },
+        {
+          "q": "Who introduced Agent Skills on Oct 16, 2025 (per glossary)?",
+          "choices": ["Anthropic", "Merriam-Webster", "Oxford", "CRV"],
+          "answer_index": 0
+        }
+      ]
+    }
+  ]
+}

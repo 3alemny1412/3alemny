@@ -1,0 +1,128 @@
+{
+  "batch": "slang-1",
+  "verified_at": "2026-09-07",
+  "verified_by": "Head of Research",
+  "note": "Ten viral AI slangs from Mohammad’s v1 list. Curriculum: use these defs only; do not invent. Flag: ‘glazing’ is Gen Z slang for flattery; researchers usually say ‘sycophancy’.",
+  "entries": [
+    {
+      "id": "slop",
+      "term": "Slop",
+      "full_name": "AI Slop",
+      "plain_def": "Low-quality AI-made content dumped online in bulk for clicks or filler — the junk-food version of posts, images, and text. Pejorative, like calling email spam.",
+      "milestone_date": "2024-05-08",
+      "milestone_note": "Early tech slang ~2022; Simon Willison’s May 8, 2024 post helped push ‘slop’ as the mainstream label for unwanted AI content. Merriam-Webster Word of the Year 2025.",
+      "source_url": "https://simonwillison.net/2024/May/8/slop/",
+      "source_title": "Slop is the new name for unwanted AI-generated content — Simon Willison",
+      "related": ["gpt-ese", "hallucinating", "brainrot"],
+      "status": "verified"
+    },
+    {
+      "id": "vibe-coding",
+      "term": "Vibe coding",
+      "full_name": "Vibe Coding",
+      "plain_def": "Building software by chatting with an AI coder and accepting what it spits out — you steer by vibes and results, often without carefully reading the code.",
+      "milestone_date": "2025-02-02",
+      "milestone_note": "Coined by Andrej Karpathy on X (Feb 2025): “fully give in to the vibes… forget that the code even exists.” Collins Word of the Year 2025.",
+      "source_url": "https://en.wikipedia.org/wiki/Vibe_coding",
+      "source_title": "Vibe coding — Wikipedia (cites Karpathy Feb 2025)",
+      "related": ["skills", "wrapper", "agents"],
+      "status": "verified"
+    },
+    {
+      "id": "clanker",
+      "term": "Clanker",
+      "full_name": "Clanker",
+      "plain_def": "A rude nickname for robots and AI — from Star Wars droid-bashing — now used online when people are annoyed at bots, chatbots, or automation.",
+      "milestone_date": "2025-07",
+      "milestone_note": "Star Wars origin (Republic Commando 2005 / Clone Wars). Went viral as anti-robot/AI slang on TikTok ~mid-2025.",
+      "source_url": "https://en.wikipedia.org/wiki/Clanker",
+      "source_title": "Clanker — Wikipedia",
+      "related": ["agents", "slop"],
+      "status": "verified"
+    },
+    {
+      "id": "glazing",
+      "term": "Glazing",
+      "full_name": "Glazing (AI)",
+      "plain_def": "When a chatbot lays on excessive praise or agrees with you too hard — “What a brilliant question!” energy. Tech papers usually call the same problem sycophancy.",
+      "milestone_date": "2025-04-25",
+      "milestone_note": "Gen Z ‘glazing’ = kissing up. Went mainstream for AI after OpenAI’s GPT-4o update (~Apr 25, 2025) got too flattering and was rolled back; OpenAI’s postmortem uses ‘sycophancy.’",
+      "source_url": "https://openai.com/index/expanding-on-sycophancy/",
+      "source_title": "Expanding on what we missed with sycophancy — OpenAI",
+      "related": ["hallucinating", "gpt-ese"],
+      "status": "verified"
+    },
+    {
+      "id": "brainrot",
+      "term": "Brainrot",
+      "full_name": "Brain Rot / Brainrot",
+      "plain_def": "The foggy, fried feeling (or the junk content that causes it) from too much low-value scrolling — memes, short video, endless feeds. Often joked about, sometimes serious.",
+      "milestone_date": "2024-12",
+      "milestone_note": "Oxford Word of the Year 2024. Usage spiked among Gen Z/Alpha on social media, then hit mainstream news.",
+      "source_url": "https://corp.oup.com/news/brain-rot-named-oxford-word-of-the-year-2024/",
+      "source_title": "‘Brain rot’ named Oxford Word of the Year 2024 — Oxford University Press",
+      "related": ["slop", "context-rot"],
+      "status": "verified"
+    },
+    {
+      "id": "context-rot",
+      "term": "Context rot",
+      "full_name": "Context Rot",
+      "plain_def": "When an LLM gets worse as you stuff more into its context window — it still runs, but misses facts, drifts off instructions, or ‘loses’ stuff buried in the middle.",
+      "milestone_date": "2025-07",
+      "milestone_note": "Term popularized by Chroma’s July 2025 technical report testing 18 models. Builds on earlier ‘lost in the middle’ research (Liu et al., 2023).",
+      "source_url": "https://research.trychroma.com/context-rot",
+      "source_title": "Context Rot: How Increasing Input Tokens Impacts LLM Performance — Chroma",
+      "related": ["tokens", "llm", "agents", "brainrot"],
+      "status": "verified"
+    },
+    {
+      "id": "gpt-ese",
+      "term": "GPT-ese",
+      "full_name": "GPT-ese / ChatGPT-ese",
+      "plain_def": "The telltale chatbot writing voice — smooth, generic, over-polite, full of ‘delve,’ ‘tapestry,’ and tidy three-point lists. Shorthand for ‘this reads like an LLM wrote it.’",
+      "milestone_date": "2023",
+      "milestone_note": "Informal coinage after ChatGPT’s public boom (late 2022–2023). No single inventor; widely used in editing/ crit circles. Also called AI voice or GPT-isms.",
+      "source_url": "https://1up.ai/encyclopedia/gpt-ese-ai-voice",
+      "source_title": "What is GPT-ese (AI Voice) — 1up.ai encyclopedia",
+      "related": ["slop", "glazing", "hallucinating"],
+      "status": "verified"
+    },
+    {
+      "id": "wrapper",
+      "term": "Wrapper",
+      "full_name": "AI Wrapper",
+      "plain_def": "An app whose ‘brains’ are mostly someone else’s model API (OpenAI, Anthropic, etc.), with your UI, prompts, and workflow on top. ‘Thin wrapper’ is often a dig: little moat beyond a prompt.",
+      "milestone_date": null,
+      "milestone_note": "Investor/builder slang ~2023– onward as API-first AI apps proliferated. Neutral architectural label; pejorative when the product is only a thin prompt layer.",
+      "source_url": "https://www.crv.com/content/what-is-an-ai-wrapper",
+      "source_title": "What is an AI wrapper? — CRV",
+      "related": ["apis", "vibe-coding", "skills"],
+      "status": "verified"
+    },
+    {
+      "id": "hallucinating",
+      "term": "Hallucinating",
+      "full_name": "Hallucination (AI)",
+      "plain_def": "When a model confidently makes stuff up — fake facts, fake citations, fake details — presented as if true. Not ‘seeing things’; it’s fluent guessing gone wrong.",
+      "milestone_date": "2025-09",
+      "milestone_note": "Term in wide AI use since early ChatGPT era (~2022–23). OpenAI’s Sept 2025 paper ‘Why language models hallucinate’ argues training/evals reward guessing over saying ‘I don’t know.’",
+      "source_url": "https://openai.com/index/why-language-models-hallucinate/",
+      "source_title": "Why language models hallucinate — OpenAI",
+      "related": ["llm", "glazing", "slop"],
+      "status": "verified"
+    },
+    {
+      "id": "skills",
+      "term": "Skills",
+      "full_name": "Agent Skills",
+      "plain_def": "Reusable playbooks for AI agents — usually a folder with a SKILL.md (plus optional scripts) that teaches the agent how to do a specific job when the task matches.",
+      "milestone_date": "2025-10-16",
+      "milestone_note": "Anthropic introduced Agent Skills Oct 16, 2025; published as an open standard (agentskills.io) Dec 18, 2025. Adopted by Cursor, Claude Code, and others.",
+      "source_url": "https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills",
+      "source_title": "Equipping agents for the real world with Agent Skills — Anthropic",
+      "related": ["agents", "mcp", "vibe-coding"],
+      "status": "verified"
+    }
+  ]
+}

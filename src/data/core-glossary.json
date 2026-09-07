@@ -1,0 +1,104 @@
+{
+  "batch": "core-1",
+  "verified_at": "2026-09-07",
+  "verified_by": "Head of Research",
+  "note": "Eighth core term is LLM — Mohammad listed seven named cores; CoS allowed +1 for a clean set of eight. Curriculum: use these defs only; do not invent.",
+  "entries": [
+    {
+      "id": "llm",
+      "term": "LLM",
+      "full_name": "Large Language Model",
+      "plain_def": "A large AI model trained on huge amounts of text so it can understand and generate language — predicting the next token, over and over, until it writes a full answer.",
+      "milestone_date": "2017-06",
+      "milestone_note": "Transformer architecture paper (“Attention Is All You Need”) unlocked modern LLMs; consumer chatbots followed later (e.g. ChatGPT Nov 2022).",
+      "source_url": "https://www.ibm.com/think/topics/large-language-models",
+      "source_title": "What Are Large Language Models (LLMs)? — IBM",
+      "related": ["tokens", "claude", "grok", "agents"],
+      "status": "verified"
+    },
+    {
+      "id": "tokens",
+      "term": "Tokens",
+      "full_name": "Tokens (LLM)",
+      "plain_def": "The small chunks an AI model actually reads and writes — often pieces of words, not whole words. Models bill and limit context by token count, not by character count.",
+      "milestone_date": "2016",
+      "milestone_note": "Subword BPE for NMT popularized in 2015–2016; per-token API pricing became the industry norm with commercial LLM APIs from ~2020.",
+      "source_url": "https://www.couchbase.com/blog/what-is-a-token-in-ai/",
+      "source_title": "What Is a Token in AI? An Explainer — Couchbase",
+      "related": ["llm", "apis"],
+      "status": "verified"
+    },
+    {
+      "id": "apis",
+      "term": "APIs",
+      "full_name": "Application Programming Interface",
+      "plain_def": "A defined way for one program to talk to another — a contract of requests and responses — so apps can share data and features without sharing their internal code.",
+      "milestone_date": null,
+      "milestone_note": "General computing concept (decades old). In AI products, “the API” usually means the HTTP endpoints you call to send prompts and get model output.",
+      "source_url": "https://aws.amazon.com/what-is/api/",
+      "source_title": "What is an API? — AWS",
+      "related": ["mcp", "n8n", "agents"],
+      "status": "verified"
+    },
+    {
+      "id": "agents",
+      "term": "Agents",
+      "full_name": "AI Agents",
+      "plain_def": "An AI system where the model itself decides what to do next — picking tools, looping on a goal — instead of only answering inside a fixed, pre-written script.",
+      "milestone_date": "2024",
+      "milestone_note": "Agent/tool-use patterns exploded in product use through 2024–2026; definitions still vary by vendor. LangChain’s production framing: the LLM owns application control flow.",
+      "source_url": "https://www.langchain.com/blog/what-is-an-agent",
+      "source_title": "What is an AI agent? — LangChain",
+      "related": ["llm", "mcp", "n8n", "apis"],
+      "status": "verified"
+    },
+    {
+      "id": "mcp",
+      "term": "MCP",
+      "full_name": "Model Context Protocol",
+      "plain_def": "An open standard for plugging AI assistants into tools and data sources through one shared protocol — like a USB-C port for AI apps — instead of a custom connector for every pair.",
+      "milestone_date": "2024-11-25",
+      "milestone_note": "Open-sourced by Anthropic on Nov 25, 2024. Spec and docs: modelcontextprotocol.io.",
+      "source_url": "https://www.anthropic.com/news/model-context-protocol",
+      "source_title": "Introducing the Model Context Protocol — Anthropic",
+      "related": ["apis", "agents", "claude"],
+      "status": "verified"
+    },
+    {
+      "id": "n8n",
+      "term": "n8n",
+      "full_name": "n8n (nodemation)",
+      "plain_def": "A fair-code workflow automation tool where you connect apps and AI steps on a visual canvas (or with code). Self-host for free, or use their cloud. Name = “nodemation,” said “n-eight-n.”",
+      "milestone_date": "2019-10",
+      "milestone_note": "Public launch October 2019 (Berlin); founded by Jan Oberhauser. Company n8n GmbH registered Nov 2019.",
+      "source_url": "https://github.com/n8n-io/n8n",
+      "source_title": "n8n-io/n8n — GitHub README",
+      "related": ["apis", "agents", "mcp"],
+      "status": "verified"
+    },
+    {
+      "id": "claude",
+      "term": "Claude",
+      "full_name": "Claude (Anthropic)",
+      "plain_def": "Anthropic’s family of AI assistants and models — chat + API — trained to be helpful, honest, and harmless. You use it in the Claude apps or call it from your own software.",
+      "milestone_date": "2023-03-14",
+      "milestone_note": "Anthropic introduced Claude publicly on Mar 14, 2023. Model lineup has since expanded (Haiku / Sonnet / Opus / later generations).",
+      "source_url": "https://www.anthropic.com/news/introducing-claude",
+      "source_title": "Introducing Claude — Anthropic",
+      "related": ["llm", "mcp", "grok"],
+      "status": "verified"
+    },
+    {
+      "id": "grok",
+      "term": "Grok",
+      "full_name": "Grok (xAI)",
+      "plain_def": "xAI’s conversational AI assistant — chat, search, voice, and creation tools — built to answer with real-time context and a less-filtered style than many rivals.",
+      "milestone_date": "2023-11-03",
+      "milestone_note": "xAI announced Grok on Nov 3–4, 2023 (early beta / waitlist). Later available via X Premium tiers, grok.com, and mobile apps.",
+      "source_url": "https://x.ai/news/grok",
+      "source_title": "Announcing Grok — xAI",
+      "related": ["llm", "claude", "agents"],
+      "status": "verified"
+    }
+  ]
+}

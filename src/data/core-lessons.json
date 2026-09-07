@@ -1,0 +1,312 @@
+{
+  "batch": "core-1",
+  "source_glossary": "/workspace/3alemny/glossary/core-batch-1.json",
+  "created_at": "2026-09-07",
+  "created_by": "Head of Curriculum",
+  "schema": {
+    "plain_def": "from Research only — never rewritten",
+    "why_it_blew_up": "framed from Research milestone_note only",
+    "prerequisites": "lesson ids that unlock this one",
+    "related": "term ids from glossary",
+    "try_it": "browser exercise users do, not just read",
+    "quiz": "check understanding after try_it"
+  },
+  "unlock_order": ["llm", "tokens", "apis", "claude", "grok", "agents", "mcp", "n8n"],
+  "lessons": [
+    {
+      "id": "llm",
+      "term_id": "llm",
+      "term": "LLM",
+      "plain_def": "A large AI model trained on huge amounts of text so it can understand and generate language — predicting the next token, over and over, until it writes a full answer.",
+      "why_it_blew_up": "The 2017 Transformer paper unlocked modern LLMs; consumer chatbots like ChatGPT (Nov 2022) made “talking to a model” mainstream.",
+      "prerequisites": [],
+      "related": ["tokens", "claude", "grok", "agents"],
+      "try_it": {
+        "type": "predict-next",
+        "title": "Be the model for one step",
+        "prompt": "Given the unfinished sentence “The cat sat on the ___”, pick the next word a language model is most likely to choose — and say why a model thinks in next-token guesses, not full essays at once.",
+        "options": ["mat", "spaceship", "quantum", "API"],
+        "expected": "mat",
+        "debrief": "LLMs don’t “know the answer” first — they keep picking the next token. Everyday phrases score high; weird ones score low."
+      },
+      "quiz": [
+        {
+          "q": "What does an LLM mainly do, step by step?",
+          "choices": [
+            "Search the whole internet for one perfect page",
+            "Predict the next token again and again to build an answer",
+            "Store every book as a searchable database",
+            "Run only if you install Python locally"
+          ],
+          "answer_index": 1
+        },
+        {
+          "q": "Which event is tied to unlocking modern LLMs (per verified glossary)?",
+          "choices": [
+            "The 2017 Transformer architecture paper",
+            "The invention of the mouse",
+            "Bitcoin’s whitepaper",
+            "The first iPhone Keynote"
+          ],
+          "answer_index": 0
+        }
+      ]
+    },
+    {
+      "id": "tokens",
+      "term_id": "tokens",
+      "term": "Tokens",
+      "plain_def": "The small chunks an AI model actually reads and writes — often pieces of words, not whole words. Models bill and limit context by token count, not by character count.",
+      "why_it_blew_up": "Subword tokenization (BPE era ~2015–2016) stuck; once commercial LLM APIs priced by the token (~2020+), every prompt, limit, and bill became a token problem.",
+      "prerequisites": ["llm"],
+      "related": ["llm", "apis"],
+      "try_it": {
+        "type": "tokenize-estimate",
+        "title": "Guess the token count",
+        "prompt": "Split these into likely tokens (pieces, not always whole words): “ChatGPT”, “n8n”, “hallucinating”. Which one probably burns more tokens than it looks?",
+        "inputs": ["ChatGPT", "n8n", "hallucinating"],
+        "hint": "Weird spellings and long rare words often split into more pieces.",
+        "debrief": "Billing and context windows count tokens, not characters — so “short” text can still be expensive or fill the window fast."
+      },
+      "quiz": [
+        {
+          "q": "What do LLM APIs usually bill and limit by?",
+          "choices": [
+            "Number of characters",
+            "Number of tokens",
+            "Number of emojis",
+            "File size on disk"
+          ],
+          "answer_index": 1
+        },
+        {
+          "q": "A token is best described as…",
+          "choices": [
+            "Always exactly one English word",
+            "A small chunk the model reads/writes — often a piece of a word",
+            "A secret API key",
+            "A type of neural network layer"
+          ],
+          "answer_index": 1
+        }
+      ]
+    },
+    {
+      "id": "apis",
+      "term_id": "apis",
+      "term": "APIs",
+      "plain_def": "A defined way for one program to talk to another — a contract of requests and responses — so apps can share data and features without sharing their internal code.",
+      "why_it_blew_up": "APIs are decades-old computing glue; in AI products, “the API” usually means the HTTP endpoints you call to send prompts and get model output — how apps ship LLM features without training their own model.",
+      "prerequisites": [],
+      "related": ["mcp", "n8n", "agents"],
+      "try_it": {
+        "type": "request-response",
+        "title": "Call a fake AI API",
+        "prompt": "Fill a mini request: method POST, path /v1/chat, body {\"prompt\": \"Say hi\"}. Then match it to the response shape you’d expect back (text + usage).",
+        "steps": [
+          "Pick method: GET or POST",
+          "Pick path: /v1/chat or /random",
+          "Read a sample JSON response and spot where the model text lives"
+        ],
+        "debrief": "You never see the model’s internals — you only honor the contract: send a valid request, parse the response."
+      },
+      "quiz": [
+        {
+          "q": "An API is mainly…",
+          "choices": [
+            "A contract of requests/responses so programs can talk without sharing internal code",
+            "A logo for your app",
+            "A paid font license",
+            "A type of GPU"
+          ],
+          "answer_index": 0
+        },
+        {
+          "q": "In AI products, “the API” usually means…",
+          "choices": [
+            "HTTP endpoints to send prompts and get model output",
+            "The physical power cord of a server",
+            "A Twitter thread",
+            "The Tailwind config file"
+          ],
+          "answer_index": 0
+        }
+      ]
+    },
+    {
+      "id": "claude",
+      "term_id": "claude",
+      "term": "Claude",
+      "plain_def": "Anthropic’s family of AI assistants and models — chat + API — trained to be helpful, honest, and harmless. You use it in the Claude apps or call it from your own software.",
+      "why_it_blew_up": "Anthropic introduced Claude publicly on Mar 14, 2023; the lineup later expanded (Haiku / Sonnet / Opus and later generations), so “Claude” became both a chat product and an API model family.",
+      "prerequisites": ["llm"],
+      "related": ["llm", "mcp", "grok"],
+      "try_it": {
+        "type": "channel-pick",
+        "title": "Chat app vs API",
+        "prompt": "Same ask (“Summarize this paragraph”). Pick which channel fits: Claude chat app for a human tinkering once, or Claude API for your own app calling it in code.",
+        "scenarios": [
+          {"label": "You want a quick summary in a browser tab", "fit": "chat app"},
+          {"label": "Your Next.js site needs summaries for every user", "fit": "API"}
+        ],
+        "debrief": "Claude is both a product you talk to and models you call — same family, different doors."
+      },
+      "quiz": [
+        {
+          "q": "Who builds Claude?",
+          "choices": ["OpenAI", "Anthropic", "Google", "xAI"],
+          "answer_index": 1
+        },
+        {
+          "q": "How can you use Claude?",
+          "choices": [
+            "Only via a physical robot",
+            "In Claude apps and/or by calling it from your own software",
+            "Only if you fine-tune on a laptop GPU",
+            "Only through n8n cloud"
+          ],
+          "answer_index": 1
+        }
+      ]
+    },
+    {
+      "id": "grok",
+      "term_id": "grok",
+      "term": "Grok",
+      "plain_def": "xAI’s conversational AI assistant — chat, search, voice, and creation tools — built to answer with real-time context and a less-filtered style than many rivals.",
+      "why_it_blew_up": "xAI announced Grok on Nov 3–4, 2023 (early beta/waitlist); later it showed up via X Premium tiers, grok.com, and mobile apps — putting another big-lab assistant in the consumer mix.",
+      "prerequisites": ["llm"],
+      "related": ["llm", "claude", "agents"],
+      "try_it": {
+        "type": "compare-labs",
+        "title": "Same question, two labs",
+        "prompt": "You need an assistant with real-time context and a less-filtered style (per verified def). Tag which product fits that brief: Claude or Grok — and name the lab behind it.",
+        "expected_product": "Grok",
+        "expected_lab": "xAI",
+        "debrief": "Same job class (LLM assistants), different labs and product bets — Grok is xAI’s."
+      },
+      "quiz": [
+        {
+          "q": "Who builds Grok?",
+          "choices": ["Anthropic", "xAI", "Meta", "IBM"],
+          "answer_index": 1
+        },
+        {
+          "q": "Per the verified definition, Grok is positioned as…",
+          "choices": [
+            "A database only",
+            "A conversational AI with chat, search, voice, and creation tools",
+            "A CSS framework",
+            "A Netlify plugin"
+          ],
+          "answer_index": 1
+        }
+      ]
+    },
+    {
+      "id": "agents",
+      "term_id": "agents",
+      "term": "Agents",
+      "plain_def": "An AI system where the model itself decides what to do next — picking tools, looping on a goal — instead of only answering inside a fixed, pre-written script.",
+      "why_it_blew_up": "Agent/tool-use patterns exploded in product use through 2024–2026; LangChain’s production framing: the LLM owns application control flow — not a hard-coded script.",
+      "prerequisites": ["llm", "apis"],
+      "related": ["llm", "mcp", "n8n", "apis"],
+      "try_it": {
+        "type": "loop-vs-script",
+        "title": "Script vs agent",
+        "prompt": "Goal: “Book a meeting if the calendar is free.” Choose path A (fixed script: always call calendar, then always email) vs path B (model picks next tool based on the last result). Which one is the agent pattern?",
+        "expected": "path B",
+        "debrief": "Chat answers once; agents keep deciding the next action until the goal is done (or they stop)."
+      },
+      "quiz": [
+        {
+          "q": "What makes a system an AI agent (per verified def)?",
+          "choices": [
+            "It only returns one chat reply from a fixed template",
+            "The model decides what to do next — tools + looping on a goal",
+            "It must run offline forever",
+            "It must be open source"
+          ],
+          "answer_index": 1
+        },
+        {
+          "q": "In LangChain’s production framing cited by Research, who owns application control flow?",
+          "choices": [
+            "The LLM",
+            "Only the CSS file",
+            "Only the CDN",
+            "Only the human every single step"
+          ],
+          "answer_index": 0
+        }
+      ]
+    },
+    {
+      "id": "mcp",
+      "term_id": "mcp",
+      "term": "MCP",
+      "plain_def": "An open standard for plugging AI assistants into tools and data sources through one shared protocol — like a USB-C port for AI apps — instead of a custom connector for every pair.",
+      "why_it_blew_up": "Anthropic open-sourced MCP on Nov 25, 2024 (spec/docs at modelcontextprotocol.io) — one shared plug instead of a custom connector for every app↔tool pair.",
+      "prerequisites": ["apis", "agents"],
+      "related": ["apis", "agents", "claude"],
+      "try_it": {
+        "type": "connector-count",
+        "title": "Custom connectors vs one protocol",
+        "prompt": "You have 4 assistants and 5 tools. Count the custom one-off connectors if every pair needs its own (4×5) vs one shared protocol each side speaks once. Which world is MCP aiming for?",
+        "expected": "shared protocol",
+        "debrief": "MCP is the USB-C idea: speak the standard once, plug many tools without rewriting every pair."
+      },
+      "quiz": [
+        {
+          "q": "MCP stands for…",
+          "choices": [
+            "Model Context Protocol",
+            "Mega Cloud Pricing",
+            "Mainframe Control Panel",
+            "Mobile Camera Plugin"
+          ],
+          "answer_index": 0
+        },
+        {
+          "q": "Who open-sourced MCP (per verified glossary)?",
+          "choices": ["Anthropic", "Netlify", "IBM", "Couchbase"],
+          "answer_index": 0
+        }
+      ]
+    },
+    {
+      "id": "n8n",
+      "term_id": "n8n",
+      "term": "n8n",
+      "plain_def": "A fair-code workflow automation tool where you connect apps and AI steps on a visual canvas (or with code). Self-host for free, or use their cloud. Name = “nodemation,” said “n-eight-n.”",
+      "why_it_blew_up": "Public launch October 2019 (Berlin, founder Jan Oberhauser); fair-code automation with a visual canvas made “wire AI + apps” accessible without a full custom backend.",
+      "prerequisites": ["apis"],
+      "related": ["apis", "agents", "mcp"],
+      "try_it": {
+        "type": "canvas-wire",
+        "title": "Wire a three-node flow",
+        "prompt": "On a fake canvas, connect: Webhook → AI step → Slack message. Say the flow out loud: “When X arrives, ask the model, then post Y.” Pronounce the product name correctly.",
+        "nodes": ["Webhook", "AI step", "Slack"],
+        "pronunciation": "n-eight-n",
+        "debrief": "n8n is the canvas where APIs (and AI steps) become a visible workflow — self-host free or use cloud."
+      },
+      "quiz": [
+        {
+          "q": "How do you pronounce n8n?",
+          "choices": ["naten", "n-eight-n", "nan", "en-ate-en-en"],
+          "answer_index": 1
+        },
+        {
+          "q": "What is n8n primarily?",
+          "choices": [
+            "A fair-code workflow automation tool with a visual canvas (or code)",
+            "A type of GPU",
+            "Anthropic’s chat app",
+            "A Tailwind color palette"
+          ],
+          "answer_index": 0
+        }
+      ]
+    }
+  ]
+}
