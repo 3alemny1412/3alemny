@@ -26,14 +26,22 @@ export default function HomePage() {
 
   return (
     <main className="mx-auto flex min-h-screen max-w-5xl flex-col px-4 pb-16 pt-6">
-      <header className="flex items-center justify-between">
+      <header className="flex items-center justify-between gap-3">
         <span className="text-h3 tracking-tight text-ink">3alemny</span>
-        <Link
-          href="/quiz"
-          className="rounded-pill bg-accent px-4 py-2 text-caption font-semibold text-accent-ink transition-colors duration-hover hover:bg-accent/90"
-        >
-          Placement quiz
-        </Link>
+        <div className="flex items-center gap-2">
+          <Link
+            href="/graph"
+            className="rounded-pill border border-border bg-surface px-3 py-2 text-caption text-ink hover:bg-surface-2"
+          >
+            Graph
+          </Link>
+          <Link
+            href="/quiz"
+            className="rounded-pill bg-accent px-4 py-2 text-caption font-semibold text-accent-ink transition-colors duration-hover hover:bg-accent/90"
+          >
+            Placement quiz
+          </Link>
+        </div>
       </header>
 
       <section className="mt-16">
