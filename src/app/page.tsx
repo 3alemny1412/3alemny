@@ -28,12 +28,18 @@ export default function HomePage() {
     <main className="mx-auto flex min-h-screen max-w-5xl flex-col px-4 pb-16 pt-6">
       <header className="flex items-center justify-between gap-3">
         <span className="text-h3 tracking-tight text-ink">3alemny</span>
-        <div className="flex items-center gap-2">
+        <div className="flex flex-wrap items-center justify-end gap-2">
           <Link
             href="/graph"
             className="rounded-pill border border-border bg-surface px-3 py-2 text-caption text-ink hover:bg-surface-2"
           >
             Graph
+          </Link>
+          <Link
+            href="/games"
+            className="rounded-pill border border-border bg-surface px-3 py-2 text-caption text-ink hover:bg-surface-2"
+          >
+            Games
           </Link>
           <Link
             href="/quiz"

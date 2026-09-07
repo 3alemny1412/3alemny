@@ -1,0 +1,386 @@
+{
+  "id": "games-v1",
+  "created_at": "2026-09-07",
+  "created_by": "Head of Curriculum",
+  "note": "Three browser mini-games. Players do the thing \u2014 no long reading. Copy uses Research-locked defs only for any term labels.",
+  "design_hint": "Per Design: slang track hits harder (rose) than core (teal). CSS-only motion.",
+  "games": [
+    {
+      "id": "spot-the-slop",
+      "title": "Spot the Slop",
+      "track": "slang",
+      "terms": [
+        "slop",
+        "gpt-ese",
+        "brainrot"
+      ],
+      "goal": "Tap the bulk AI junk \u2014 leave the real posts alone.",
+      "rounds": 5,
+      "rules": [
+        "Each round shows 3 cards (title + blurbs).",
+        "Exactly one card is slop (bulk low-effort AI dump).",
+        "Tap the slop card. Wrong tap = miss; streak resets."
+      ],
+      "scoring": {
+        "hit": 1,
+        "miss": 0,
+        "streak_bonus_every": 3
+      },
+      "round_bank": [
+        {
+          "id": "r1",
+          "cards": [
+            {
+              "id": "a",
+              "label": "Weekend notes from my lab notebook",
+              "blurb": "3 messy bullets, one typo, no CTA.",
+              "is_slop": false
+            },
+            {
+              "id": "b",
+              "label": "10 Magical AI Wizards You Won\u2019t Believe #7",
+              "blurb": "Stock-looking collage, same caption template, farm account.",
+              "is_slop": true
+            },
+            {
+              "id": "c",
+              "label": "Reading list: Transformer paper + one blog",
+              "blurb": "Two links, one honest takeaway.",
+              "is_slop": false
+            }
+          ]
+        },
+        {
+          "id": "r2",
+          "cards": [
+            {
+              "id": "a",
+              "label": "In today\u2019s digital tapestry, let\u2019s delve\u2026",
+              "blurb": "Tidy three-point list, zero specifics \u2014 GPT-ese perfume.",
+              "is_slop": true
+            },
+            {
+              "id": "b",
+              "label": "Broke prod at 2am \u2014 here\u2019s the diff",
+              "blurb": "Screenshot + what we learned.",
+              "is_slop": false
+            },
+            {
+              "id": "c",
+              "label": "Street photo, no caption",
+              "blurb": "Just the shot.",
+              "is_slop": false
+            }
+          ]
+        },
+        {
+          "id": "r3",
+          "cards": [
+            {
+              "id": "a",
+              "label": "Local meetup tonight \u2014 bring a laptop",
+              "blurb": "Time, place, RSVP link.",
+              "is_slop": false
+            },
+            {
+              "id": "b",
+              "label": "AI will CHANGE EVERYTHING (part 47)",
+              "blurb": "100 nearly identical carousels this week.",
+              "is_slop": true
+            },
+            {
+              "id": "c",
+              "label": "Bug: quiz Next stays disabled",
+              "blurb": "Repro steps + expected.",
+              "is_slop": false
+            }
+          ]
+        },
+        {
+          "id": "r4",
+          "cards": [
+            {
+              "id": "a",
+              "label": "Endless \u2018relatable grind\u2019 clips",
+              "blurb": "Same audio, no point \u2014 brainrot bait.",
+              "is_slop": true
+            },
+            {
+              "id": "b",
+              "label": "Glossary PR review notes",
+              "blurb": "Three source links checked.",
+              "is_slop": false
+            },
+            {
+              "id": "c",
+              "label": "Recipe from grandma",
+              "blurb": "Handwritten scan.",
+              "is_slop": false
+            }
+          ]
+        },
+        {
+          "id": "r5",
+          "cards": [
+            {
+              "id": "a",
+              "label": "Open-source weekly digest",
+              "blurb": "Curated commits + why they matter.",
+              "is_slop": false
+            },
+            {
+              "id": "b",
+              "label": "\u2018As an AI language model\u2026\u2019 wall of text",
+              "blurb": "Generic praise, no receipts \u2014 filler dump.",
+              "is_slop": true
+            },
+            {
+              "id": "c",
+              "label": "Sketch of the graph page",
+              "blurb": "Pen on paper.",
+              "is_slop": false
+            }
+          ]
+        }
+      ],
+      "debrief": "Slop = low-quality AI-made content dumped in bulk for clicks or filler \u2014 junk-food posts. Pejorative on purpose."
+    },
+    {
+      "id": "next-token",
+      "title": "Next Token",
+      "track": "core",
+      "terms": [
+        "llm",
+        "tokens"
+      ],
+      "goal": "Be the model for one step \u2014 pick the likeliest next chunk.",
+      "rounds": 5,
+      "rules": [
+        "You see an unfinished prompt.",
+        "Pick the next token/word the model is most likely to continue with.",
+        "Weird or off-topic choices score low."
+      ],
+      "scoring": {
+        "correct": 1,
+        "wrong": 0
+      },
+      "round_bank": [
+        {
+          "id": "r1",
+          "prompt": "The cat sat on the",
+          "choices": [
+            {
+              "id": "a",
+              "text": "mat",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "spaceship",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "API",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "quantum",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "r2",
+          "prompt": "Please click",
+          "choices": [
+            {
+              "id": "a",
+              "text": "here",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "xylophone",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "Netlify Pro",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "clanker",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "r3",
+          "prompt": "Once upon a",
+          "choices": [
+            {
+              "id": "a",
+              "text": "time",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "GPU",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "sycophancy",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "Dockerfile",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "r4",
+          "prompt": "HTTP status",
+          "choices": [
+            {
+              "id": "a",
+              "text": "200",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "banana",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "glazing",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "brainrot",
+              "correct": false
+            }
+          ]
+        },
+        {
+          "id": "r5",
+          "prompt": "Large language",
+          "choices": [
+            {
+              "id": "a",
+              "text": "model",
+              "correct": true
+            },
+            {
+              "id": "b",
+              "text": "toaster",
+              "correct": false
+            },
+            {
+              "id": "c",
+              "text": "palette",
+              "correct": false
+            },
+            {
+              "id": "d",
+              "text": "invoice",
+              "correct": false
+            }
+          ]
+        }
+      ],
+      "debrief": "LLMs predict the next token again and again. Everyday phrases score high; weird ones score low. Billing/context count tokens, not characters."
+    },
+    {
+      "id": "script-or-agent",
+      "title": "Script or Agent?",
+      "track": "core",
+      "terms": [
+        "agents",
+        "apis",
+        "glazing"
+      ],
+      "goal": "Sort each scenario: fixed script vs model-decides-next (agent) \u2014 and spot the glaze.",
+      "rounds": 6,
+      "rules": [
+        "Read the scenario.",
+        "Tap Script, Agent, or Glaze (excessive praise / sycophancy).",
+        "One correct label per round."
+      ],
+      "scoring": {
+        "correct": 1,
+        "wrong": 0
+      },
+      "round_bank": [
+        {
+          "id": "r1",
+          "scenario": "Always call calendar, then always send the same email template \u2014 no branching.",
+          "answer": "script",
+          "choices": [
+            "script",
+            "agent",
+            "glaze"
+          ]
+        },
+        {
+          "id": "r2",
+          "scenario": "Model picks the next tool from the last result until the meeting is booked or it stops.",
+          "answer": "agent",
+          "choices": [
+            "script",
+            "agent",
+            "glaze"
+          ]
+        },
+        {
+          "id": "r3",
+          "scenario": "Chatbot: \u201cWhat a brilliant visionary question!!!\u201d \u2014 zero critique.",
+          "answer": "glaze",
+          "choices": [
+            "script",
+            "agent",
+            "glaze"
+          ]
+        },
+        {
+          "id": "r4",
+          "scenario": "Hard-coded: if error then retry once, else show FAQ \u2014 never asks the model what to do.",
+          "answer": "script",
+          "choices": [
+            "script",
+            "agent",
+            "glaze"
+          ]
+        },
+        {
+          "id": "r5",
+          "scenario": "LLM owns control flow: search \u2192 read \u2192 decide whether to post or ask you.",
+          "answer": "agent",
+          "choices": [
+            "script",
+            "agent",
+            "glaze"
+          ]
+        },
+        {
+          "id": "r6",
+          "scenario": "Reply agrees with every bad idea and piles on praise. Papers call this sycophancy.",
+          "answer": "glaze",
+          "choices": [
+            "script",
+            "agent",
+            "glaze"
+          ]
+        }
+      ],
+      "debrief": "Agents: the model decides what to do next (tools + loop). Scripts: fixed path. Glazing = excessive praise; researchers say sycophancy."
+    }
+  ]
+}
