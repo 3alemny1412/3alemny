@@ -12,8 +12,9 @@ export default function QuizPage() {
         </div>
         <h1 className="text-h2 text-ink">Placement quiz</h1>
         <p className="mt-2 text-body text-ink-muted">
-          Scaffold shell only. Question bank lands after Curriculum finishes
-          both batches.
+          Question bank is in{" "}
+          <code className="font-mono text-caption text-ink">src/data/placement-quiz.json</code>
+          . Wiring big accent-select answer buttons next.
         </p>
         <button
           type="button"
