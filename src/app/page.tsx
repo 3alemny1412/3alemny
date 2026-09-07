@@ -1,6 +1,29 @@
 import Link from "next/link";
+import { LessonCard } from "@/components/LessonCard";
+import type { LessonsFile } from "@/lib/types";
+import coreLessons from "@/data/core-lessons.json";
+import slangLessons from "@/data/slang-lessons.json";
+
+function orderedPreviews(file: LessonsFile, track: "core" | "slang") {
+  const byId = new Map(file.lessons.map((l) => [l.id, l]));
+  return file.unlock_order
+    .map((id) => byId.get(id))
+    .filter((l): l is NonNullable<typeof l> => Boolean(l))
+    .map((l) => (
+      <LessonCard
+        key={l.id}
+        id={l.id}
+        term={l.term}
+        plainDef={l.plain_def}
+        track={track}
+      />
+    ));
+}
 
 export default function HomePage() {
+  const core = coreLessons as LessonsFile;
+  const slang = slangLessons as LessonsFile;
+
   return (
     <main className="mx-auto flex min-h-screen max-w-5xl flex-col px-4 pb-16 pt-6">
       <header className="flex items-center justify-between">
@@ -26,25 +49,18 @@ export default function HomePage() {
         </p>
       </section>
 
-      <section className="mt-14 grid gap-6 md:grid-cols-2">
-        <div className="rounded-card border border-border bg-surface p-5 transition-colors duration-hover hover:bg-surface-2">
-          <p className="mb-3 inline-flex rounded-chip bg-core/15 px-2 py-1 text-caption font-semibold text-core">
-            Core
-          </p>
-          <h2 className="text-h2 text-ink">Eight foundations</h2>
-          <p className="mt-2 text-body text-ink-muted">
-            LLM, tokens, APIs, agents, MCP, n8n, Claude, Grok — locked until
-            lesson data wires in.
-          </p>
+      <section className="mt-14 grid gap-8 md:grid-cols-2">
+        <div>
+          <h2 className="mb-4 text-h2 text-core">Core track</h2>
+          <div className="flex flex-col gap-3">
+            {orderedPreviews(core, "core")}
+          </div>
         </div>
-        <div className="rounded-card border border-border bg-surface p-5 transition-colors duration-hover hover:bg-surface-2">
-          <p className="mb-3 inline-flex rounded-chip bg-slang/15 px-2 py-1 text-caption font-semibold text-slang">
-            Slang
-          </p>
-          <h2 className="text-h2 text-ink">Ten viral terms</h2>
-          <p className="mt-2 text-body text-ink-muted">
-            Slop, vibe coding, clanker, and more — louder track, same rules.
-          </p>
+        <div>
+          <h2 className="mb-4 text-h2 text-slang">Slang track</h2>
+          <div className="flex flex-col gap-3">
+            {orderedPreviews(slang, "slang")}
+          </div>
         </div>
       </section>
 
