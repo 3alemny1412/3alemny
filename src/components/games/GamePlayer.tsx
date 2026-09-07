@@ -15,6 +15,8 @@ export function GamePlayer({ gameId }: Props) {
   const [score, setScore] = useState(0);
   const [streak, setStreak] = useState(0);
   const [shake, setShake] = useState(false);
+  const [flash, setFlash] = useState<"ok" | "warn" | null>(null);
+  const [pickedId, setPickedId] = useState<string | null>(null);
   const [done, setDone] = useState(false);
   const [locked, setLocked] = useState(false);
 
@@ -39,9 +41,7 @@ export function GamePlayer({ gameId }: Props) {
       ? "border-accent/50"
       : "border-core/50";
 
-  function advance(hit: boolean) {
-    if (locked || done) return;
-    setLocked(true);
+  function finishAdvance(hit: boolean) {
     if (hit) {
       const nextStreak = streak + 1;
       let add = 1;
@@ -50,19 +50,30 @@ export function GamePlayer({ gameId }: Props) {
       }
       setScore((s) => s + add);
       setStreak(nextStreak);
+      setFlash("ok");
     } else {
       setStreak(0);
+      setFlash("warn");
       setShake(true);
-      setTimeout(() => setShake(false), 400);
+      setTimeout(() => setShake(false), 450);
     }
     setTimeout(() => {
+      setFlash(null);
+      setPickedId(null);
       if (round + 1 >= total) {
         setDone(true);
         return;
       }
       setRound((r) => r + 1);
       setLocked(false);
-    }, 350);
+    }, 650);
+  }
+
+  function advance(hit: boolean, id?: string) {
+    if (locked || done) return;
+    setLocked(true);
+    if (id) setPickedId(id);
+    finishAdvance(hit);
   }
 
   if (done) {
@@ -81,6 +92,8 @@ export function GamePlayer({ gameId }: Props) {
               setStreak(0);
               setDone(false);
               setLocked(false);
+              setFlash(null);
+              setPickedId(null);
             }}
           >
             Play again
@@ -98,8 +111,10 @@ export function GamePlayer({ gameId }: Props) {
 
   return (
     <section
-      className={`rounded-card border bg-surface p-5 ${shell} ${
-        shake ? "animate-[shake_0.35s_ease-in-out]" : ""
+      className={`rounded-card border bg-surface p-5 transition-colors ${shell} ${
+        shake ? "animate-[shake_0.4s_ease-in-out] border-warn" : ""
+      } ${flash === "ok" ? "border-ok ring-1 ring-ok/40" : ""} ${
+        flash === "warn" ? "border-warn ring-1 ring-warn/40" : ""
       }`}
     >
       <header className="flex items-start justify-between gap-3">
@@ -120,6 +135,12 @@ export function GamePlayer({ gameId }: Props) {
         Round {round + 1}/{total}
         {isSlop && streak > 0 ? ` · streak ${streak}` : ""}
       </p>
+      {flash === "ok" && (
+        <p className="mt-2 text-caption font-semibold text-ok">Hit</p>
+      )}
+      {flash === "warn" && (
+        <p className="mt-2 text-caption font-semibold text-warn">Miss</p>
+      )}
 
       {isSlop && current && "cards" in current && (
         <div className="mt-4 grid gap-3">
@@ -132,18 +153,32 @@ export function GamePlayer({ gameId }: Props) {
                 is_slop: boolean;
               }[];
             }
-          ).cards.map((card) => (
-            <button
-              key={card.id}
-              type="button"
-              disabled={locked}
-              onClick={() => advance(card.is_slop)}
-              className="rounded-card border border-border bg-surface-2 p-4 text-left transition-colors duration-hover hover:border-slang"
-            >
-              <p className="text-body font-semibold text-ink">{card.label}</p>
-              <p className="mt-1 text-caption text-ink-muted">{card.blurb}</p>
-            </button>
-          ))}
+          ).cards.map((card) => {
+            const picked = pickedId === card.id;
+            const showHit = flash === "ok" && picked && card.is_slop;
+            const showMiss = flash === "warn" && picked && !card.is_slop;
+            const revealSlop = flash !== null && card.is_slop;
+            return (
+              <button
+                key={card.id}
+                type="button"
+                disabled={locked}
+                onClick={() => advance(card.is_slop, card.id)}
+                className={`rounded-card border p-4 text-left transition-colors duration-hover ${
+                  showHit
+                    ? "border-ok bg-ok/20 text-ink"
+                    : showMiss
+                      ? "border-warn bg-warn/20 text-ink"
+                      : revealSlop
+                        ? "border-ok/60 bg-ok/10"
+                        : "border-border bg-surface-2 hover:border-slang"
+                }`}
+              >
+                <p className="text-body font-semibold text-ink">{card.label}</p>
+                <p className="mt-1 text-caption text-ink-muted">{card.blurb}</p>
+              </button>
+            );
+          })}
         </div>
       )}
 
@@ -158,17 +193,26 @@ export function GamePlayer({ gameId }: Props) {
               current as {
                 choices: { id: string; text: string; correct: boolean }[];
               }
-            ).choices.map((c) => (
-              <button
-                key={c.id}
-                type="button"
-                disabled={locked}
-                onClick={() => advance(c.correct)}
-                className="rounded-card border border-border bg-surface-2 px-3 py-3 font-mono text-caption text-ink hover:border-accent"
-              >
-                {c.text}
-              </button>
-            ))}
+            ).choices.map((c) => {
+              const picked = pickedId === c.id;
+              return (
+                <button
+                  key={c.id}
+                  type="button"
+                  disabled={locked}
+                  onClick={() => advance(c.correct, c.id)}
+                  className={`rounded-card border px-3 py-3 font-mono text-caption transition-colors ${
+                    picked && flash === "ok"
+                      ? "border-ok bg-ok/20 text-ink"
+                      : picked && flash === "warn"
+                        ? "border-warn bg-warn/20 text-ink"
+                        : "border-border bg-surface-2 text-ink hover:border-accent"
+                  }`}
+                >
+                  {c.text}
+                </button>
+              );
+            })}
           </div>
         </div>
       )}
@@ -180,19 +224,28 @@ export function GamePlayer({ gameId }: Props) {
           </p>
           <div className="mt-4 flex flex-wrap gap-3">
             {(current as { choices: string[]; answer: string }).choices.map(
-              (label) => (
-                <button
-                  key={label}
-                  type="button"
-                  disabled={locked}
-                  onClick={() =>
-                    advance(label === (current as { answer: string }).answer)
-                  }
-                  className="rounded-pill border border-core bg-core/10 px-5 py-3 text-caption font-semibold capitalize text-core transition-colors duration-hover hover:bg-accent hover:text-accent-ink"
-                >
-                  {label}
-                </button>
-              ),
+              (label) => {
+                const picked = pickedId === label;
+                const correct =
+                  label === (current as { answer: string }).answer;
+                return (
+                  <button
+                    key={label}
+                    type="button"
+                    disabled={locked}
+                    onClick={() => advance(correct, label)}
+                    className={`rounded-pill border px-5 py-3 text-caption font-semibold capitalize transition-colors duration-hover ${
+                      picked && flash === "ok"
+                        ? "border-ok bg-ok/20 text-ok"
+                        : picked && flash === "warn"
+                          ? "border-warn bg-warn/20 text-warn"
+                          : "border-core bg-core/10 text-core hover:bg-accent hover:text-accent-ink"
+                    }`}
+                  >
+                    {label}
+                  </button>
+                );
+              },
             )}
           </div>
         </div>
